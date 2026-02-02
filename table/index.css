@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Tailwind utility to ensure table cells look correct */
+/* Required because MUI tables have their own border logic */
+.MuiTableCell-root {
+  border-bottom: 1px solid rgba(224, 224, 224, 1) !important;
+}
