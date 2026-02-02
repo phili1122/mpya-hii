@@ -22,6 +22,12 @@ If you want, I can also:
 - Add a GitHub Action to run the `verify:secrets` check on PRs and CI. 🔧
 - Help you set the Vercel env vars if you grant access or provide confirmation that they are set. 💡
 
+### GitHub Actions auto-deploy (optional)
+- A workflow named `CI` is included at `.github/workflows/ci.yml` that:
+  - Runs `npm run verify:secrets` and `npm run build` on PRs and pushes to `main`.
+  - Triggers an automatic deploy to Vercel **only** if the repository secrets `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID` are configured in GitHub (the deploy step is skipped otherwise).
+- To enable automatic deploys from GitHub Actions, add the three GitHub repository **secrets** mentioned above (and `VERCEL_TOKEN` must be a Vercel personal token).
+
 ### Important: rotate tokens if they were committed 🔁
-If any secret (like `TURSO_AUTH_TOKEN`) was ever committed to the repo or included in a deployed bundle, **rotate the secret immediately** (revoke and create a new token). If the secret was committed to the Git history, consider removing it from history (e.g., using `git filter-repo` or GitHub's ``Remove sensitive data`` guide) and force-pushing to your repo. After rotation, update the new value in the Vercel dashboard.
+If any secret (like `TURSO_AUTH_TOKEN`) was ever committed to the repo or included in a deployed bundle, **rotate the secret immediately** (revoke and create a new token). If the secret was committed to the Git history, consider removing it from history (e.g., using `git filter-repo` or GitHub's "Remove sensitive data" guide) and force-pushing to your repo. After rotation, update the new value in the Vercel dashboard.
 
