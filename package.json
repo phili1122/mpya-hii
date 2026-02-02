@@ -18,6 +18,8 @@
   },
   "scripts": {
     "dev": "vite",
+    "verify:secrets": "node scripts/check-no-vite.js",
+    "prebuild": "npm run verify:secrets",
     "build": "vite build",
     "preview": "vite preview"
   },

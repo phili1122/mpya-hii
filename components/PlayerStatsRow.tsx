@@ -31,16 +31,17 @@ export default function PlayerStatsRow(props: RowProps) {
   const [open, setOpen] = React.useState(false)
 
   // Conditional background color logic
-  let rowBgColor = ''
-  let hoverBgColor = 'rgba(0, 0, 0, 0.04)'
+  // Default to light-blue for middle rows
+  let rowBgColor = '#a6d1e5'
+  let hoverBgColor = 'rgba(14,165,233,0.08)'
 
   if (rank === 1) {
-    // Light golden color for the first row
-    rowBgColor = '#52e641'
+    // Light green color for the first row
+    rowBgColor = '#69e05c'
     hoverBgColor = '#FFECB3'
   } else if (rank === totalRows) {
     // Light red color for the last row
-    rowBgColor = '#f02929'
+    rowBgColor = '#e95353'
     hoverBgColor = '#FDCBCC'
   }
 
